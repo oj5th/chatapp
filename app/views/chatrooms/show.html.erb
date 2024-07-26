@@ -1,0 +1,10 @@
+<h1><%= @chatroom.name %></h1>
+<div id="messages">
+	<% @messages.each do |message| %>
+		<p><%= message.content %></p>
+	<% end %>
+</div>
+<%= form_with url: chatroom_messages_path(@chatroom), local: true do |form| %>
+	<%= form.text_area :content %>
+	<%= form.submit "Send" %>
+<% end %>
